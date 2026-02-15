@@ -3,6 +3,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Pattern } from "@/components/pattern"
 import { Box, BoxHeader, BoxTitle, BoxContent } from "@/components/box"
+import { PageTransition } from "@/components/page-transition"
 import Link from "next/link"
 import { ArrowLeft, Calendar } from "lucide-react"
 import { notFound } from "next/navigation"
@@ -50,7 +51,7 @@ export default async function ArticlePage({ params }: PageProps) {
     }
 
     return (
-        <>
+        <PageTransition>
             <Navbar />
 
             <main
@@ -104,6 +105,6 @@ export default async function ArticlePage({ params }: PageProps) {
             </main>
 
             <Footer />
-        </>
+        </PageTransition>
     )
 }

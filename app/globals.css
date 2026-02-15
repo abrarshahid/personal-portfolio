@@ -164,3 +164,105 @@
     stroke-dashoffset: 0;
   }
 }
+
+/* ── Loading Screen ── */
+@keyframes splashFadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--background));
+  animation: splashFadeOut 0.6s ease-out 2.4s forwards;
+  pointer-events: all;
+}
+
+.loading-screen.dismissed {
+  animation: splashFadeOut 0.4s ease-out forwards;
+}
+
+/* ── Page Transition ── */
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageEnter 0.5s ease-out forwards;
+}
+
+/* ── Route Loading Skeleton ── */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-line {
+  height: 0.875rem;
+  border-radius: 0.25rem;
+  background: linear-gradient(90deg,
+      hsl(var(--muted)) 25%,
+      hsl(var(--accent)) 50%,
+      hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.loading-dot {
+  animation: loadingPulse 1.4s ease-in-out infinite;
+}
+
+/* ── Navigation Loader ── */
+@keyframes progressIndeterminate {
+  0% {
+    transform: scaleX(0);
+  }
+
+  50% {
+    transform: scaleX(0.7);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-progress-indeterminate {
+  animation: progressIndeterminate 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}

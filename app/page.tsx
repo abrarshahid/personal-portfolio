@@ -7,6 +7,7 @@ import { DynamicSections } from "@/components/dynamic-sections"
 import { Contact } from "@/components/contact"
 import { StaticExperienceSection } from "@/components/static-experience-section"
 import { StaticProjectsSection } from "@/components/static-projects-section"
+import { PageTransition } from "@/components/page-transition"
 import { getExperience, getProfile, getProjects } from "@/lib/data"
 
 export default async function Home() {
@@ -17,7 +18,7 @@ export default async function Home() {
   ])
 
   return (
-    <>
+    <PageTransition>
       <Navbar />
 
       <main
@@ -40,6 +41,6 @@ export default async function Home() {
       </main>
 
       <Footer />
-    </>
+    </PageTransition>
   )
 }

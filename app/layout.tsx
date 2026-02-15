@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Roboto_Condensed } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Suspense } from 'react'
+import { LoadingScreen } from '@/components/loading-screen'
+import { NavigationLoader } from '@/components/navigation-loader'
 import './globals.css'
 
 const geistSans = Geist({
@@ -60,6 +63,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${robotoCondensed.variable} font-sans antialiased min-h-screen overflow-x-hidden`}>
+        <LoadingScreen />
+        <Suspense fallback={null}>
+          <NavigationLoader />
+        </Suspense>
         {children}
         <Analytics />
       </body>

@@ -3,6 +3,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Pattern } from "@/components/pattern"
 import { Box, BoxHeader, BoxTitle, BoxContent } from "@/components/box"
+import { PageTransition } from "@/components/page-transition"
 import Link from "next/link"
 import { Calendar } from "lucide-react"
 
@@ -21,7 +22,7 @@ export default async function ArticlesPage() {
         .order("created_at", { ascending: false })
 
     return (
-        <>
+        <PageTransition>
             <Navbar />
 
             <main
@@ -81,6 +82,7 @@ export default async function ArticlesPage() {
             </main>
 
             <Footer />
-        </>
+        </PageTransition>
     )
 }
+

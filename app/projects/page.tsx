@@ -3,6 +3,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Pattern } from "@/components/pattern"
 import { Box, BoxHeader, BoxTitle, BoxContent } from "@/components/box"
+import { PageTransition } from "@/components/page-transition"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 import ReactMarkdown from "react-markdown"
@@ -26,7 +27,7 @@ export default async function ProjectsPage() {
         .order("order_index", { ascending: true })
 
     return (
-        <>
+        <PageTransition>
             <Navbar />
 
             <main
@@ -107,6 +108,7 @@ export default async function ProjectsPage() {
             </main>
 
             <Footer />
-        </>
+        </PageTransition>
     )
 }
+
